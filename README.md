@@ -1,2 +1,2 @@
 # ESII
-Inside this repo you can found ESII exercises and projects.
+Inside this repo you can find ESII exercises and projects.
