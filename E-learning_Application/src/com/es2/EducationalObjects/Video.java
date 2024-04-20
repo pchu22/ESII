@@ -4,7 +4,7 @@ import com.es2.Exceptions.InvalidValueException;
 
 import java.util.List;
 
-public class Video implements EducationalObject{
+public class Video implements EducationalObjectInterface {
     private String title;
     private String description;
     private String URL;

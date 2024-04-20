@@ -5,7 +5,7 @@ import com.es2.Exceptions.InvalidValueException;
 import java.util.Date;
 import java.util.List;
 
-public class Article implements EducationalObject{
+public class Article implements EducationalObjectInterface{
     private String title;
     private String description;
     private String content;

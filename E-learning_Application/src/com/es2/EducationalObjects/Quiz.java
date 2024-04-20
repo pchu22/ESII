@@ -4,7 +4,7 @@ import com.es2.Exceptions.InvalidValueException;
 
 import java.util.List;
 
-public class Quiz implements EducationalObject{
+public class Quiz implements EducationalObjectInterface {
     private String title;
     private String description;
     private List<String> questions;

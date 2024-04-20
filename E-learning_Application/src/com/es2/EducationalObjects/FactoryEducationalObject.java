@@ -5,10 +5,9 @@ import com.es2.Exceptions.UndefinedEducationalObjectException;
 public class FactoryEducationalObject {
     protected FactoryEducationalObject() { }
 
-    public static EducationalObject makeEducationalObject(String type) throws UndefinedEducationalObjectException {
+    public static EducationalObjectInterface makeEducationalObject(String type) throws UndefinedEducationalObjectException {
         if(type == null){
-            return null;
-            //throw new  IllegalArgumentException("The educational object type can't be null");
+            throw new  IllegalArgumentException("The educational object type can't be null");
         } else if (type.equalsIgnoreCase("Article")) {
             return new Article();
         } else if (type.equalsIgnoreCase("Quiz")) {
