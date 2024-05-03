@@ -16,7 +16,7 @@ public class Quiz implements EducationalObjectInterface {
     private List<String> feedback;
     private int averageResponseTime;
 
-    protected Quiz() { }
+    public Quiz() { }
 
     @Override
     public void setTitle(String _title) {

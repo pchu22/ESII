@@ -3,12 +3,13 @@ package com.es2.LearningStructure;
 import com.es2.EducationalObjects.EducationalObjectInterface;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class Lesson {
+public class Lesson implements Component {
     private String title;
     private String description;
     private long duration;
-    private ArrayList<EducationalObjectInterface> resources = new ArrayList<>();
+    private List<EducationalObjectInterface> resources = new ArrayList<>();
     private boolean isCompleted = false;
 
     public Lesson(String _title, String _description) {
@@ -32,8 +33,7 @@ public class Lesson {
         this.description = description;
     }
 
-
-    public ArrayList<EducationalObjectInterface> getResources() {
+    public List<EducationalObjectInterface> getResources() {
         return resources;
     }
 
@@ -56,4 +56,16 @@ public class Lesson {
     public void setCompleted(boolean _completed) {
         isCompleted = _completed;
     }
+
+    @Override
+    public void display() {
+        System.out.println("Lesson: " + title);
+        System.out.println("Description: " + description);
+        System.out.println("Duration: " + duration + " minutes");
+        System.out.println("Resources:");
+        for (EducationalObjectInterface resource : resources) {
+            System.out.println("- " + resource.getTitle());
+        }
+    }
+
 }

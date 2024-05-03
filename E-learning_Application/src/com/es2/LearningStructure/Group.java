@@ -3,9 +3,9 @@ package com.es2.LearningStructure;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Group {
+public class Group implements Component {
     private String name;
-    private final List<Lesson> lessons = new ArrayList<>();
+    private List<Component> components = new ArrayList<>();
 
     public Group(String name) {
         this.name = name;
@@ -19,17 +19,20 @@ public abstract class Group {
         this.name = name;
     }
 
-    public void addLesson(Lesson lesson) {
-        lessons.add(lesson);
+    public void addComponents(Component component) {
+        components.add(component);
     }
 
-    public void removeLesson(Lesson lesson) {
-        lessons.remove(lesson);
+    public void removeComponent(Component component) {
+        components.remove(component);
     }
 
-    public List<Lesson> getLessons() {
-        return lessons;
+    @Override
+    public void display() {
+        System.out.println("Group Name: " + name);
+        for (Component component : components) {
+            System.out.print("  ");
+            component.display();
+        }
     }
-
-    public abstract void showContent();
 }

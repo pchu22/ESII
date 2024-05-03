@@ -14,7 +14,7 @@ public class Video implements EducationalObjectInterface {
     private List<String> comments;
     private List<String> tags;
 
-    protected Video() { }
+    public Video() { }
 
     @Override
     public void setTitle(String _title) {

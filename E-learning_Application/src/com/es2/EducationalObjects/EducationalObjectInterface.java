@@ -5,4 +5,5 @@ public interface EducationalObjectInterface {
     String getTitle();
     void setDescription(String _description);
     String getDescription();
+
 }

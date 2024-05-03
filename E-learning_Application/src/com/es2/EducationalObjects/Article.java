@@ -16,7 +16,7 @@ public class Article implements EducationalObjectInterface{
     private int evaluation;
     private List<String> comments;
 
-    protected Article() { }
+    public Article() { }
 
     @Override
     public void setTitle(String _title) {
