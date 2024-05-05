@@ -1,39 +1,51 @@
 package com.es2.EducationalObjects;
 
 import com.es2.Exceptions.InvalidValueException;
+import com.es2.StateStorage.Caretaker;
+import com.es2.StateStorage.Memento;
 
-import java.util.List;
+import java.util.*;
 
-public class Quiz implements EducationalObjectInterface {
+public class Quiz implements EducationalObjectInterface, Memento<Quiz> {
     private String title;
     private String description;
-    private List<String> questions;
-    private List<String> answers;
+    private List<String> questions = new ArrayList<>();
+    private List<String> answers  = new ArrayList<>();
     private int difficultyLevel;
     private int timeout;
     private String category;
     private int maxScore;
-    private List<String> feedback;
+    private List<String> feedback = new ArrayList<>();
     private int averageResponseTime;
+    private Caretaker<Quiz> caretaker = new Caretaker<>();
 
     public Quiz() { }
 
-    @Override
+    public Quiz(Quiz other) {
+        this.title = other.title;
+        this.description = other.description;
+        this.questions = other.questions;
+        this.answers = other.answers;
+        this.difficultyLevel = other.difficultyLevel;
+        this.timeout = other.timeout;
+        this.category = other.category;
+        this.maxScore = other.maxScore;
+        this.feedback = other.feedback;
+        this.averageResponseTime = other.averageResponseTime;
+    }
+
     public void setTitle(String _title) {
         this.title = _title;
     }
 
-    @Override
     public String getTitle() {
         return title;
     }
 
-    @Override
     public void setDescription(String _description) {
         this.description = _description;
     }
 
-    @Override
     public String getDescription() {
         return description;
     }
@@ -100,5 +112,37 @@ public class Quiz implements EducationalObjectInterface {
 
     public Integer getAverageResponseTime() {
         return averageResponseTime;
+    }
+
+    @Override
+    public void display() {
+
+    }
+
+    @Override
+    public Quiz getState() {
+        return new Quiz(this);
+    }
+
+    public void saveState(String key) {
+        caretaker.saveState(key, this.getState());
+    }
+
+    public void restoreState(String key) {
+        Memento<Quiz> memento = caretaker.restoreState(key);
+        if (memento != null) {
+            Quiz restoredQuiz = memento.getState();
+
+            this.title = restoredQuiz.getTitle();
+            this.description = restoredQuiz.getDescription();
+            this.questions = new ArrayList<>(restoredQuiz.getQuestions());
+            this.answers = new ArrayList<>(restoredQuiz.getAnswers());
+            this.difficultyLevel = restoredQuiz.getDifficultyLevel();
+            this.timeout = restoredQuiz.getTimeout();
+            this.category = restoredQuiz.getCategory();
+            this.maxScore = restoredQuiz.getMaxScore();
+            this.feedback = new ArrayList<>(restoredQuiz.getFeedback());
+            this.averageResponseTime = restoredQuiz.getAverageResponseTime();
+        }
     }
 }

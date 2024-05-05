@@ -2,6 +2,7 @@ package com.es2.EducationalObjects;
 
 import com.es2.Exceptions.InvalidValueException;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -12,26 +13,22 @@ public class Article implements EducationalObjectInterface{
     private String author;
     private Date publishDate;
     private String category;
-    private List<String> tags;
+    private List<String> tags = new ArrayList<>();
     private int evaluation;
-    private List<String> comments;
+    private List<String> comments = new ArrayList<>();
 
     public Article() { }
 
-    @Override
     public void setTitle(String _title) {
         this.title = _title;
     }
 
-    @Override
     public String getTitle() {
         return title;
     }
 
-    @Override
     public void setDescription(String _description) { this.description = _description; }
 
-    @Override
     public String getDescription() { return description; }
 
     public void setContent(String _content) { this.content = _content; }
@@ -70,4 +67,9 @@ public class Article implements EducationalObjectInterface{
     public void setTags(List<String> _tags) { this.tags = _tags; }
 
     public List<String> getTags() { return tags; }
+
+    @Override
+    public void display() {
+
+    }
 }

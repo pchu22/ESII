@@ -50,5 +50,4 @@ public class ArticlePool extends ObjectPool<Article> {
         isAvailable.add(article);
         inUse.remove(article);
     }
-
 }

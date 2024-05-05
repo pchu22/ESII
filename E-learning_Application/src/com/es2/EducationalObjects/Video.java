@@ -2,6 +2,7 @@ package com.es2.EducationalObjects;
 
 import com.es2.Exceptions.InvalidValueException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Video implements EducationalObjectInterface {
@@ -11,25 +12,21 @@ public class Video implements EducationalObjectInterface {
     private int duration;
     private String language;
     private String quality;
-    private List<String> comments;
-    private List<String> tags;
+    private List<String> comments = new ArrayList<>();
+    private List<String> tags = new ArrayList<>();
 
     public Video() { }
 
-    @Override
     public void setTitle(String _title) {
         this.title = _title;
     }
 
-    @Override
     public String getTitle() {
         return title;
     }
 
-    @Override
     public void setDescription(String _description) { this.description = _description; }
 
-    @Override
     public String getDescription() { return description; }
 
     public void setURL(String _url) { this.URL = _url; }
@@ -60,4 +57,9 @@ public class Video implements EducationalObjectInterface {
     public void setTags(List<String> _tags) { this.tags = _tags; }
 
     public List<String> getTags() { return tags; }
+
+    @Override
+    public void display() {
+
+    }
 }
